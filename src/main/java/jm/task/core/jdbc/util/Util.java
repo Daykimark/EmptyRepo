@@ -22,10 +22,15 @@ public class Util {
     }
 
     public static void closeConnection() throws SQLException {
-        connection.close();
+        if (connection == null) {
+            sessionFactory.close();
+        } else {
+            connection.close();
+        }
     }
+
     public static SessionFactory getSessionFactory() {
-        Properties prop= new Properties();
+        Properties prop = new Properties();
 
         prop.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/mark");
 
@@ -36,7 +41,7 @@ public class Util {
         prop.setProperty("hibernate.show_sql", "true");
         prop.setProperty("hibernate.hbm2ddl.auto", "update");
 
-        return new Configuration()
+        return sessionFactory = new Configuration()
                 .addProperties(prop)
                 .addAnnotatedClass(User.class)
                 .buildSessionFactory();

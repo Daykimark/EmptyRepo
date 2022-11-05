@@ -18,6 +18,7 @@ public interface UserService {
     List<User> getAllUsers() throws SQLException;
 
     void cleanUsersTable() throws SQLException;
+
     default void closeConnection() throws SQLException {
         Util.closeConnection();
     }
