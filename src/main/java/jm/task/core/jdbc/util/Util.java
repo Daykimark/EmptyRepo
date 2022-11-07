@@ -21,12 +21,12 @@ public class Util {
         return (connection = DriverManager.getConnection(URL, USERNAME, PASSWORD));
     }
 
-    public static void closeConnection() throws SQLException {
-        if (connection == null) {
-            sessionFactory.close();
-        } else {
-            connection.close();
-        }
+    public static void closeConnectionJDBC() throws SQLException {
+        connection.close();
+    }
+
+    public static void closeConnectionHibernate() {
+        sessionFactory.close();
     }
 
     public static SessionFactory getSessionFactory() {

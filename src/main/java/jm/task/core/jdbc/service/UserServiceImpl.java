@@ -43,4 +43,9 @@ public class UserServiceImpl implements UserService {
     public void cleanUsersTable() throws SQLException {
         user.cleanUsersTable();
     }
+
+    @Override
+    public void closeConnection() throws SQLException {
+        user.closeConnection();
+    }
 }

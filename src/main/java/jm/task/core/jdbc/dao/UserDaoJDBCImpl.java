@@ -79,7 +79,9 @@ public class UserDaoJDBCImpl implements UserDao {
 
         }
     }
+
+
     public void closeConnection() throws SQLException {
-        Util.closeConnection();
+        Util.closeConnectionJDBC();
     }
 }

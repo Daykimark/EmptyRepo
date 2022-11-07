@@ -7,7 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.sql.SQLException;
 import java.util.List;
+
 
 public class UserDaoHibernateImpl implements UserDao {
     public SessionFactory sessionFactory = Util.getSessionFactory();
@@ -88,5 +90,10 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.rollback();
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void closeConnection() throws SQLException {
+        Util.closeConnectionHibernate();
     }
 }

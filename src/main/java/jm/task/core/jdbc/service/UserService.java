@@ -1,7 +1,6 @@
 package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,7 +18,5 @@ public interface UserService {
 
     void cleanUsersTable() throws SQLException;
 
-    default void closeConnection() throws SQLException {
-        Util.closeConnection();
-    }
+    void closeConnection() throws SQLException;
 }

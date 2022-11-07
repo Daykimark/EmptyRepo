@@ -16,5 +16,6 @@ public class Main {
         user.cleanUsersTable();
         user.dropUsersTable();
         user.closeConnection();
+        user.closeConnection();
     }
 }
